@@ -1,7 +1,20 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @user = create :user
+  end
+
+  test "should get new"  do
+    get :new
+    assert_response :success
+  end
+
+  test "should post create" do
+    attributes = { login: @user.login, password: @user.password }
+    post :create, user: attributes
+    assert_response :success
+
+    assert_equal attributes[:login], User.last.login
+  end
 end
