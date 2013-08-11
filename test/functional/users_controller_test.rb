@@ -13,7 +13,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should post create" do
     attributes = { login: @user.login, password: @user.password }
     post :create, user: attributes
-    assert_response :success
+    assert_response :redirect
 
     assert_equal attributes[:login], User.last.login
   end
