@@ -4,4 +4,5 @@ ActorSearch::Application.routes.draw do
   resources :users, except: [:index, :edit, :update]
   resource :session, only: [:new, :create, :destroy]
   resources :actors
+  resources :models
 end

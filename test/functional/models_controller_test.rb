@@ -1,0 +1,53 @@
+require 'test_helper'
+
+class ModelsControllerTest < ActionController::TestCase
+  setup do
+    @model = create :model
+    @user = create :user
+  end
+
+  test "should get new" do
+    user_sign_in @user
+
+    get :new
+    assert_response :success
+  end
+
+  test "should post create" do
+    user_sign_in @user
+
+    attributes = attributes_for :model
+    post :create, model: attributes
+    assert_response :redirect
+
+    assert_equal attributes[:first_name], Model.last.first_name
+  end
+
+  test "should get edit" do
+    user_sign_in @model.user
+
+    get :edit, id: @model
+    assert_response :success
+  end
+
+  test "should put update" do
+    user_sign_in @model.user
+
+    attributes = attributes_for :model
+    put :update, id: @model, model: attributes
+    assert_redirected_to model_path @model
+
+    @model.reload
+    assert_equal attributes[:first_name], @model.first_name
+  end
+
+  test "should destroy model" do
+    user_sign_in @model.user
+
+    assert_difference('Model.count', -1) do
+      delete :destroy, id: @model
+    end
+
+    assert_redirected_to :root
+  end
+end
