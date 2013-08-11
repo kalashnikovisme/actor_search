@@ -20,7 +20,7 @@ class ModelsControllerTest < ActionController::TestCase
     post :create, model: attributes
     assert_response :redirect
 
-    assert_equal attributes[:first_name], Model.last.first_name
+    assert_equal attributes[:user_id], Model.last.user.id
   end
 
   test "should get edit" do
@@ -38,7 +38,7 @@ class ModelsControllerTest < ActionController::TestCase
     assert_redirected_to model_path @model
 
     @model.reload
-    assert_equal attributes[:first_name], @model.first_name
+    assert_equal attributes[:user_id], @model.user.id
   end
 
   test "should destroy model" do

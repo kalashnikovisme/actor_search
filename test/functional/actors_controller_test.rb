@@ -20,7 +20,7 @@ class ActorsControllerTest < ActionController::TestCase
     post :create, actor: attributes
     assert_response :redirect
 
-    assert_equal attributes[:first_name], Actor.last.first_name
+    assert_equal attributes[:user_id], Actor.last.user.id
   end
 
   test "should get edit" do
@@ -38,7 +38,7 @@ class ActorsControllerTest < ActionController::TestCase
     assert_redirected_to actor_path @actor
 
     @actor.reload
-    assert_equal attributes[:first_name], @actor.first_name
+    assert_equal attributes[:user_id], @actor.user.id
   end
 
   test "should destroy actor" do
