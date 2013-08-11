@@ -1,12 +1,10 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :actor do
-    first_name "MyString"
-    middle_name "MyString"
-    last_name "MyString"
-    phone "MyString"
-    email "MyString"
-    user_id 1
+    first_name  { generate :string }
+    middle_name { generate :string }
+    last_name   { generate :string }
+    phone
+    email
+    user
   end
 end

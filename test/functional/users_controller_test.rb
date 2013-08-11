@@ -18,6 +18,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_equal attributes[:login], User.last.login
   end
 
+  test "should get show" do
+    get :show, id: @user
+    assert_response :success
+  end
+
   test "should destroy user" do
     assert_difference('User.count', -1) do
       delete :destroy, id: @user

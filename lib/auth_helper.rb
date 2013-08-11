@@ -14,4 +14,8 @@ module AuthHelper
   def authenticate_user?(user, password)
     user.password === password
   end
+
+  def authenticate_user!
+    redirect_to new_session_path unless user_signed_in?
+  end
 end

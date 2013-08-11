@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
   def new
-    unless user_signed_in?
-      @user = User.new
-    end
+    @user = User.new
   end
 
   def create
     @user = User.new params[:user]
     if @user.save
       user_sign_in @user
-      render action: :new
+      redirect_to user_path @user
     else
       render action: :new
     end
+  end
+
+  def show
+    @user = User.find params[:id]
   end
 
   def destroy
