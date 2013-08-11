@@ -7,6 +7,7 @@ class ActorsController < ApplicationController
 
   def create
     actor = Actor.new params[:actor]
+    actor.user = current_user
     if actor.save
       redirect_to actor_path actor
     else
