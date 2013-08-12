@@ -17,6 +17,7 @@ class ActorsControllerTest < ActionController::TestCase
     user_sign_in @user
 
     attributes = attributes_for :actor
+    attributes[:user_id] = @user.id
     post :create, actor: attributes
     assert_response :redirect
 
@@ -34,6 +35,7 @@ class ActorsControllerTest < ActionController::TestCase
     user_sign_in @actor.user
 
     attributes = attributes_for :actor
+    attributes[:user_id] = @actor.user.id
     put :update, id: @actor, actor: attributes
     assert_redirected_to actor_path @actor
 
