@@ -10,12 +10,17 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new params[:photo]
     @photo.user = User.find params[:id]
-    render action: :new
+    if @photo.save
+      redirect_to new_photo_path @photo.user
+    else
+      render action: :new
+    end
   end
 
   def destroy
     @photo = Photo.find params[:id]
+    user = @photo.user
     @photo.destroy
-    render action: :new
+    redirect_to new_photo_path user
   end
 end

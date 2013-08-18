@@ -17,9 +17,8 @@ class PhotosControllerTest < ActionController::TestCase
     user_sign_in @user
 
     attributes = attributes_for :photo
-    attributes[:user_id] = @user.id
     post :create, id: @user, photo: attributes
-    assert_response :success
+    assert_response :redirect
     #assert_equal @user.id, Photo.last.user.id
   end
 
@@ -30,7 +29,7 @@ class PhotosControllerTest < ActionController::TestCase
       delete :destroy, id: @photo
     end
 
-    assert_response :success
+    assert_response :redirect
   end
 
 end

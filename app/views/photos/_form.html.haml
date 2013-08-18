@@ -1,0 +1,7 @@
+= stylesheet_link_tag "photos"
+
+= simple_form_for @photo, html: { multipart: true } do |f|
+  = f.label :photo
+  %br
+  = f.file_field :file
+  = f.button :submit, t('.add_photo'), class: 'btn btn-primary'

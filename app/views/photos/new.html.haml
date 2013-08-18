@@ -1,2 +1,10 @@
-%h1 Photos#new
-%p Find me in app/views/photos/new.html.haml
+= render 'form'
+
+= link_to t('back'), users_path, class: 'btn margin-bottom'
+%br
+
+- @photos.each do |photo|
+  .image.margin-bottom
+    %img.img-polaroid.margin-bottom{ src: photo.file.big_thumb }
+    %br
+    = link_to t('destroy'), photo, method: :delete, data: { confirm: t('.confirm') }, class: 'btn btn-danger margin-bottom'
