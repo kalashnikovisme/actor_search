@@ -1,6 +1,10 @@
 class ActorsController < ApplicationController
   before_filter :authenticate_user!, except: :index
 
+  def index
+    @actors = Actor.all
+  end
+
   def new
     @actor = Actor.new
   end

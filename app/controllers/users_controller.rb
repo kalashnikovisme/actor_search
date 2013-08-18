@@ -14,7 +14,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    actor = Actor.find_by_user_id params[:id]
+    model = Model.find_by_user_id params[:id]
+    #FIXME
+    redirect_to actor_path actor if actor
+    redirect_to model_path model if model
+
+    unless actor or model
+      @user = User.find params[:id]
+    end
   end
 
   def destroy

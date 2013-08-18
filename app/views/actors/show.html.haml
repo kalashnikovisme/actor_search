@@ -3,26 +3,6 @@
   %h1=t '.title', :default => model_class.model_name.human.titleize
 
 %p
-  %strong= model_class.human_attribute_name(:first_name) + ':'
-  %br
-  = @actor.first_name
-%p
-  %strong= model_class.human_attribute_name(:middle_name) + ':'
-  %br
-  = @actor.middle_name
-%p
-  %strong= model_class.human_attribute_name(:last_name) + ':'
-  %br
-  = @actor.last_name
-%p
-  %strong= model_class.human_attribute_name(:phone) + ':'
-  %br
-  = @actor.phone
-%p
-  %strong= model_class.human_attribute_name(:email) + ':'
-  %br
-  = @actor.email
-%p
   %strong= model_class.human_attribute_name(:user_id) + ':'
   %br
   = @actor.user_id

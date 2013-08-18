@@ -6,6 +6,11 @@ class ActorsControllerTest < ActionController::TestCase
     @user = create :user
   end
 
+  test "should get index" do
+    get :index
+    assert_response :success
+  end
+
   test "should get new" do
     user_sign_in @user
 
