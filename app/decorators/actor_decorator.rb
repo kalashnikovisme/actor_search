@@ -3,7 +3,7 @@ class ActorDecorator < Draper::Decorator
 
   def first_photo_big_thumb
     if model.user.photos.any?
-      model.user.photos.first.photo.big_thumb
+      model.user.photos.first.file.big_thumb
     end
   end
 
