@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'draper'
+gem 'carrierwave'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
