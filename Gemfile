@@ -9,6 +9,7 @@ gem 'twitter-bootstrap-rails'
 gem 'draper'
 gem 'rmagick'
 gem 'carrierwave'
+gem 'simple_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
