@@ -7,6 +7,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'draper'
+gem 'rmagick'
 gem 'carrierwave'
 
 group :assets do

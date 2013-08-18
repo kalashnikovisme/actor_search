@@ -116,6 +116,7 @@ GEM
     request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.2)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -172,6 +173,7 @@ DEPENDENCIES
   minitest
   pry
   rails (= 3.2.13)
+  rmagick
   sass-rails (~> 3.2.3)
   simplecov
   sqlite3
