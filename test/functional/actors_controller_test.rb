@@ -6,6 +6,11 @@ class ActorsControllerTest < ActionController::TestCase
     @user = create :user
   end
 
+  test "should get show" do
+    get :show, id: @actor
+    assert_response :redirect
+  end
+
   test "should get index" do
     get :index
     assert_response :success

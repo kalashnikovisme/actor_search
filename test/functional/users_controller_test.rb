@@ -3,6 +3,12 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = create :user
+    @user.actor = create :actor
+  end
+
+  test "should get show" do
+    get :show, id: @user
+    assert_response :redirect
   end
 
   test "should get new"  do
