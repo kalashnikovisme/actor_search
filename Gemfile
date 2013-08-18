@@ -3,10 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'validates'
-gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'draper'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
