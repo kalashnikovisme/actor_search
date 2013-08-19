@@ -2,7 +2,7 @@ class ActorsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @actors = ActorDecorator.decorate_collection  Actor.all
+    @actors = SoughtDecorator.decorate_collection  Actor.all
   end
 
   def new

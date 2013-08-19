@@ -1,5 +1,9 @@
 class ModelsController < ApplicationController
-  before_filter :authenticate_user!, except: :index
+  before_filter :authenticate_user!, except: [:index, :show]
+
+  def index
+    @models = SoughtDecorator.decorate_collection  Model.all
+  end
 
   def new
     @model = Model.new
@@ -29,7 +33,7 @@ class ModelsController < ApplicationController
   end
 
   def show
-    @model = Model.find params[:id]
+    @model = SoughtDecorator.decorate Model.find params[:id]
   end
 
   def destroy

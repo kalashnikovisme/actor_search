@@ -6,11 +6,6 @@ class UsersControllerTest < ActionController::TestCase
     @user.actor = create :actor
   end
 
-  test "should get show" do
-    get :show, id: @user
-    assert_response :redirect
-  end
-
   test "should get new"  do
     get :new
     assert_response :success
