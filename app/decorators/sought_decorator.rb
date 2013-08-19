@@ -13,6 +13,10 @@ class SoughtDecorator < Draper::Decorator
     model.user.photos
   end
 
+  def description
+    model.user.description
+  end
+
   def first_photo_big_thumb
     if model.user.photos.any?
       model.user.photos.first.file.big_thumb

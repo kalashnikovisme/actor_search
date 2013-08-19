@@ -13,7 +13,8 @@
     = f.input :last_name
     = f.input :email
     = f.input :phone
+    = f.input :description
 
   .form-actions
-    = f.submit nil, :class => 'btn btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+    = f.submit nil, class: 'btn btn-primary'
+    = link_to t('.cancel', default: t("helpers.links.cancel")), users_path, class: 'btn'

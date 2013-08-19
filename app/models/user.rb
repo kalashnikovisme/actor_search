@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
                   :first_name,
                   :middle_name,
                   :last_name,
-                  :phone
+                  :phone,
+                  :description
 
   has_one :actor, dependent: :destroy
   has_one :model, dependent: :destroy
@@ -23,4 +24,5 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
   validates :middle_name, presence: true
   validates :phone, presence: true
+  validates :description, presence: true
 end
