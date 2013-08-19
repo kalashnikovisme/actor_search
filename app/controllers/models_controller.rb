@@ -38,7 +38,9 @@ class ModelsController < ApplicationController
 
   def destroy
     model = Model.find params[:id]
+    user = model.user
     model.destroy
+    user.destroy
     redirect_to :root
   end
 end

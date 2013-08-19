@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_one :actor, dependent: :destroy
   has_one :model, dependent: :destroy
+  has_one :searcher, dependent: :destroy
   has_many :photos, dependent: :destroy
 
   validates :login, presence: true,
