@@ -8,7 +8,7 @@ class ActorsControllerTest < ActionController::TestCase
 
   test "should get show" do
     get :show, id: @actor
-    assert_response :redirect
+    assert_response :success
   end
 
   test "should get index" do

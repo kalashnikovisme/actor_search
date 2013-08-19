@@ -4,11 +4,11 @@
 = stylesheet_link_tag     "actors"
 
 .page-header
-  %h1= @actor.fio
+  %h1= @actor.full_name
 .row-fluid
   .span7
     %p{ align: :justify }
-      = @actor.description
+      -#= @actor.description
     %p
       -#FIXME
       - if session[:admin_id]
@@ -23,11 +23,5 @@
   .span5
     .row-fluid
       .fotorama{ "data-transition" => "crossfade", "data-autoplay" => "true", "data-loop" => "true", "data-nav" => "thumbs", "data-width" => "400px", "data-ratio" => "1600/1200", "data-fit" => "contain" }
-        = @actor.photos.each do |file|
-          %img{ src: file.photo }
-    .row-fluid
-      %h3= @actor.motto
-.row-fluid
-  #vk_comments
-  :javascript
-    VK.Widgets.Comments("vk_comments", {limit: 10, width: "496", attach: "*"});
+        = @actor.photos.each do |photo|
+          %img{ src: photo.file }

@@ -9,6 +9,10 @@ class ActorDecorator < Draper::Decorator
     model.user.phone
   end
 
+  def photos
+    model.user.photos
+  end
+
   def first_photo_big_thumb
     if model.user.photos.any?
       model.user.photos.first.file.big_thumb
