@@ -33,7 +33,7 @@ class ActorsController < ApplicationController
   end
 
   def show
-    @actor = Actor.find(params[:id]).decorate
+    @actor = SoughtDecorator.decorate Actor.find(params[:id])
   end
 
   def destroy
