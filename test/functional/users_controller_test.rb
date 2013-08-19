@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = create :user
+    @user.actor = create :actor
   end
 
   test "should get new"  do
@@ -11,11 +12,16 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should post create" do
-    attributes = { login: @user.login, password: @user.password }
+    attributes = attributes_for :user
     post :create, user: attributes
-    assert_response :success
+    assert_response :redirect
 
     assert_equal attributes[:login], User.last.login
+  end
+
+  test "should get show" do
+    get :show, id: @user
+    assert_response :success
   end
 
   test "should destroy user" do

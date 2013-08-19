@@ -1,0 +1,27 @@
+= javascript_include_tag  "jquery-1.10.1.min.js"
+= stylesheet_link_tag     "fotorama"
+= javascript_include_tag  "fotorama"
+= stylesheet_link_tag     "actors"
+
+.page-header
+  %h1= @actor.full_name
+.row-fluid
+  .span7
+    %p{ align: :justify }
+      = @actor.description
+    %p
+      -#FIXME
+      - if session[:admin_id]
+        .form-actions
+          %small= t('.admins_buttons')
+          %br
+          = link_to t('.admins_photo'), admins_photos_url(@actor), class: 'btn btn-warning margin-bottom'
+          %br
+          = link_to t('edit'), edit_actor_path(@actor), class: 'btn'
+          = link_to t('destroy'), actor_path(@actor), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-danger'
+    = link_to t('back'), actors_path, class: 'btn'
+  .span5
+    .row-fluid
+      .fotorama{ "data-transition" => "crossfade", "data-autoplay" => "true", "data-loop" => "true", "data-nav" => "thumbs", "data-width" => "400px", "data-ratio" => "1600/1200", "data-fit" => "contain" }
+        = @actor.photos.each do |photo|
+          %img{ src: photo.file }

@@ -1,0 +1,24 @@
+= stylesheet_link_tag "models", media: "all"
+
+%h1
+  = t('models')
+%ul.thumbnails
+  - @models.each_with_index do |model, i|
+    - if i % 4 == 0
+      %hr
+    %li.span3.model_cell
+      .thumbnail.height_thumbnail
+        %a{ href: model_path(model) }
+          = image_tag model.first_photo_big_thumb
+        %h3= model.full_name
+        %br
+        %a.btn.btn-medium{ href: model_path(model) } Подробнее
+
+        -#FIXME
+        - if session[:admin_id]
+          = link_to t('edit', default: t('helpers.links.edit')), edit_model_path(model), class: 'btn btn-mini'
+          = link_to t('destroy', default: t("helpers.links.destroy")), model_path(model), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+-#FIXME
+- if session[:admin_id]
+  = link_to t('.new_model'), new_model_path, class: 'btn btn-primary'
+

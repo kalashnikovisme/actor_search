@@ -3,10 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'validates'
-gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
+gem 'draper'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'simple_form'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -21,4 +24,9 @@ group :test do
   gem 'turn'
   gem 'tconsole'
   gem 'coveralls', require: false
+  gem 'pry'
+end
+
+group :development do
+  gem 'syntax_fix', '0.0.3'
 end
