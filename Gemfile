@@ -10,6 +10,7 @@ gem 'draper'
 gem 'rmagick'
 gem 'carrierwave'
 gem 'simple_form'
+gem 'enumerize'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
