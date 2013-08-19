@@ -38,7 +38,9 @@ class ActorsController < ApplicationController
 
   def destroy
     actor = Actor.find params[:id]
+    user = actor.user
     actor.destroy
+    user.destroy
     redirect_to :root
   end
 end
