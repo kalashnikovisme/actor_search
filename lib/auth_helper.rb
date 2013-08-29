@@ -22,4 +22,15 @@ module AuthHelper
   def current_user
     User.find session[:user_id]
   end
+
+  #Searcher
+
+  def searcher_signed_in?
+    Searcher.find_by_user_id session[:user_id]
+  end
+
+  def current_searcher
+    Searcher.find_by_user_id session[:user_id] if searcher_signed_in?
+  end
+
 end

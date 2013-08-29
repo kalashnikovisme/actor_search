@@ -9,6 +9,9 @@
   .span7
     %p{ align: :justify }
       = @actor.description
+    - if searcher_has_access? @actor
+      %small= @actor.phone
+      %small= @actor.email
     %p
       -#FIXME
       - if session[:admin_id]

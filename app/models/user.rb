@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_one :searcher, dependent: :destroy
   has_many :photos, dependent: :destroy
 
+  has_many :accesses, dependent: :destroy
+
   validates :login, presence: true,
                     length: { maximum: 8 }
   validates :password, presence: true,
