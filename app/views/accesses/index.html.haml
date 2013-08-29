@@ -1,0 +1,23 @@
+- model_class = Access
+.page-header
+  %h1=t '.title', default: model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:state)
+      %th= model_class.human_attribute_name(:user_id)
+      %th= model_class.human_attribute_name(:searcher_id)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', default: t("helpers.actions")
+  %tbody
+    - @accesses.each do |access|
+      %tr
+        %td= link_to access.id, access_path(access)
+        %td= access.user_id
+        %td= access.searcher_id
+        %td= access.created_at
+        %td
+          = link_to t('.destroy', default: t("helpers.links.destroy")), access_path(access), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-mini btn-danger'
+
+= link_to t('.new', default: t("helpers.links.new")), new_access_path, class: 'btn btn-primary'

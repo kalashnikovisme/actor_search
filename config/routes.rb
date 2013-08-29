@@ -9,5 +9,9 @@ ActorSearch::Application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :actors
   resources :models
-  resources :searchers, except: :index
+  resources :searchers, except: :index do
+    member do
+      resources :accesses, except: [ :show, :edit, :update ]
+    end
+  end
 end
