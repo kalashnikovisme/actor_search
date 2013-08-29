@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819021045) do
+ActiveRecord::Schema.define(:version => 20130819093813) do
+
+  create_table "accesses", :force => true do |t|
+    t.string   "state"
+    t.integer  "user_id"
+    t.integer  "searcher_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "actors", :force => true do |t|
     t.integer  "user_id"
